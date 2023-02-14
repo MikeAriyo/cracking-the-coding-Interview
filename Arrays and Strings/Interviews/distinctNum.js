@@ -23,3 +23,22 @@
 // The first distinct maximum is 3.
 // The second distinct maximum is 2 (both 2's are counted together since they have the same value).
 // The third distinct maximum is 1.
+
+// solution approach
+
+function checkDistinct(nums) {
+  nums.sort((a, b) => b - a);
+  let arr = [];
+
+  for (let num of nums) {
+    if (!arr.includes(num)) {
+      arr.push(num);
+    }
+  }
+
+  if (arr.length === 3) {
+    return arr[2];
+  }
+
+  return arr[0];
+}
